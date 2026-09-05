@@ -1,0 +1,254 @@
+:root
+{
+    --light-blue: rgb(107, 200, 236);
+    --dark-blue: rgb(80, 152, 201);
+    
+    --light-green: rgb(12, 245, 62);
+    --dark-green: hsl(152, 90%, 49%);
+
+    --normal-purple: rgb(142, 95, 219);
+    --normal-pink: rgb(229, 158, 208);
+
+    --normal-yellow: hsla(73, 83%, 53%, 0.918);
+    --normal-orange:#F87F43;
+}
+
+/* for colour turning affect */
+    @property --angle
+    {
+        syntax: "<angle>";
+        inherits: false;
+        initial-value: 90deg;
+    }
+
+
+/* RAW HTML ELEMENT STYLING */
+    body
+    {
+        background-color:#ECECE4;
+    }
+
+    main{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        position: relative;
+    }
+
+    main button
+    {
+        height: 10vh;
+        position: relative;
+        top: 50%;
+        border-radius: 5vh;
+        padding: 20px;
+    }
+/* RAW HTML ELEMENT STYLING */
+
+/* CARD CLASS STYLING */
+    .Clickabkle{
+        position: relative;
+        transition: transform 0.5s;
+    }
+
+    .Clickabkle:hover
+    {
+        transform: scale(1.1);
+    }
+
+    .card{
+        display: flex;
+        justify-content: space-evenly;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+    }
+
+    .card-inner
+    {
+        width: 300px;
+        height: 300px;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 1s;
+        transition-timing-function: ease-in-out;
+    }
+
+
+
+    .front, .back
+    {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        backface-visibility: hidden;
+        text-align: center;
+        font-size: 2rem;
+        font-family: system-ui;
+        border-radius: 30px;
+        animation: AngleTurn 10s linear forwards infinite;
+        border: 5px solid black;
+    }
+
+    .back
+    {
+        background-image: linear-gradient(var(--angle), var(--light-green), var(--dark-green), var(--normal-yellow));
+    }
+
+
+
+    .front
+    {
+        background-image: linear-gradient( var(--angle), var(--light-blue), var(--dark-blue), var(--normal-purple));
+    }
+
+    .flipped
+    {
+        transform: rotateY(180deg);
+    }
+
+
+    @keyframes AngleTurn
+    {
+        0%{--angle: 0deg}
+        100%{--angle: 360deg}
+    }
+/* CARD CLASS STYLING */
+
+
+
+/* HEADING STYLING */
+    #hed
+    {
+        text-align: center;
+        font-size: 3rem;
+        font-family: system-ui;
+        color: var(--normal-orange);
+        text-shadow: black 2px 2px;
+    }
+
+    #hed::after
+    {
+        content: ' CARDSS☺';
+        text-shadow: none;
+        background-image: linear-gradient(var(--angle),var(--normal-purple), var(--dark-green));
+        animation: AngleTurn 2s ease-in forwards infinite;
+        background-clip: text;
+        color: transparent;
+        text-decoration: underline solid transparent;
+    }
+/* HEADING STYLING */
+
+/* ARROW STYLIMG */
+    .prev_nxt
+    {
+        font-size: 6rem;
+        border: 4px solid black;
+        padding: 10px;
+        text-align: center;
+        width: 10vw;
+        background-color: wheat;
+        border-radius: 10px;
+        padding: 2px;
+        transition: all 0.5s cubic-bezier(0.5, -2, 0.5, 3);
+    }
+
+    .prev_nxt:hover
+    {
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+
+    #previous
+    {
+        color: transparent;
+        transform: rotate(-90deg);
+        background-clip: text;
+        background-image: linear-gradient(var(--dark-green), var(--dark-blue));
+    }
+
+    #next
+    {
+        color: transparent;
+        transform: rotate(90deg);
+        background-clip: text;
+        background-image: linear-gradient(var(--normal-purple), var(--normal-pink));
+    }
+/* ARROW STYLIMG */
+
+    /* LIGHT and DARK SETTING */
+    .insight_box {
+        position: absolute;
+        width: 80px;
+        height: 80px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        transform-style: preserve-3d;
+        transition: transform 0.8s ease;
+
+        cursor: pointer;
+
+        /* border: 2px solid black; */
+    }
+
+    /* Flip the card */
+    .insight_box.flipped {
+        transform: rotateY(180deg);
+    }
+
+    /* Both faces */
+    .insight_box i {
+        position: absolute;
+        font-size: 5rem;
+        text-align: center;
+        width: 100%;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        border: 2px solid black;
+        box-shadow: grey 2px 2px, blueviolet 4px 4px;
+    }
+
+    /* Front face (moon) */
+    .insight_box .fa-moon {
+        background-color: wheat;
+        color: var(--light-blue);
+        transform: rotateY(0deg);
+    }
+
+    /* Back face (sun) */
+    .insight_box .fa-sun {
+        color: wheat;
+        background-image: linear-gradient(90deg,var(--light-blue), var(--dark-blue));
+        transform: rotateY(180deg);
+
+    }
+/* ARROW STYLIMG */
+
+
+/* STYLING MODES  */
+.dark
+{
+    background-color: #09504b;
+}
+
+.dark #hed
+{
+    text-shadow: pink 2px 2px, black 4px 4px, pink 6px 6px;
+}
+
+.dark .front, .back
+{
+    border: 4px solid white;
+    box-shadow: black 4px 4px;
+}
+
+.dark .insight_box .fa-sun
+{
+    color: white;
+    background-image: linear-gradient(var(--angle),var(--normal-pink), var(--normal-purple));
+    animation: AngleTurn 10s ease-in forwards infinite;
+    border: 2px solid white;
+
+}
