@@ -62,9 +62,8 @@
     .card{
         display: flex;
         justify-content: space-evenly;
-        border: 2px solid red;
         width: 50vw;
-        height: 50vh;
+        height: 400px;
         perspective: 1000px;
         transform-style: preserve-3d;
     }
@@ -77,7 +76,6 @@
         height: var(--height);
 
         left: calc(50% - (var(--width)/2));
-        top: calc(50% - (var(--height)/2));
         position: absolute;
         transform-style: preserve-3d;
         display: none;
@@ -252,7 +250,7 @@
     /* background-size: 100% 100%; */
 
 
-    --ArrowBackgroundColor: #444243;
+    --ArrowBackgroundColor: #564a5e;
     /* --BorderColor: white; */
 }
 
@@ -263,7 +261,8 @@
 
 .dark #hed
 {
-    color: WHITE;
+    /* color: WHITE; */
+    text-shadow: 2px 2px white;
 }
 
 .dark .front, .back
