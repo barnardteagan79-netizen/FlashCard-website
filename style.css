@@ -11,6 +11,9 @@
 
     --normal-yellow: hsla(73, 83%, 53%, 0.918);
     --normal-orange:#F87F43;
+
+    --ArrowBackgroundColor: wheat;
+    --BorderColor: black;
 }
 
 /* for colour turning affect */
@@ -68,8 +71,13 @@
 
     .card-inner
     {
-        width: 300px;
-        height: 300px;
+        --width: 90%;
+        --height: 90%;
+        width: var(--width);
+        height: var(--height);
+
+        left: calc(50% - (var(--width)/2));
+        top: calc(50% - (var(--height)/2));
         position: absolute;
         transform-style: preserve-3d;
         display: none;
@@ -150,11 +158,11 @@
     .prev_nxt
     {
         font-size: 6rem;
-        border: 4px solid black;
+        border: 4px solid var(--BorderColor);
         padding: 10px;
         text-align: center;
         width: 10vw;
-        background-color: wheat;
+        background-color: var(--ArrowBackgroundColor);
         border-radius: 10px;
         padding: 2px;
         transition: all 0.5s cubic-bezier(0.5, -2, 0.5, 3);
@@ -238,12 +246,24 @@
 /* STYLING MODES  */
 .dark
 {
-    background-color: rgba(41, 8, 80, 0.877);
+    background-color: #092942;
+
+    /* background-image: linear-gradient(#0C0C0C, #092942, #0C0C0C); */
+    /* background-size: 100% 100%; */
+
+
+    --ArrowBackgroundColor: #444243;
+    /* --BorderColor: white; */
 }
+
+/* .dark .prev_nxt
+{
+    border: none;
+} */
 
 .dark #hed
 {
-    text-shadow: pink 2px 2px, black 4px 4px, pink 6px 6px;
+    color: WHITE;
 }
 
 .dark .front, .back
