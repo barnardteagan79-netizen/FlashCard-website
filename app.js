@@ -4,17 +4,12 @@ const front = document.querySelector('.front');
 const body = document.getElementById('FlashCardWeb');
 const nextBtn = document.getElementById("next");
 
-let questions = ["WHAT'S 9+10?", "why am I so sexy?", "WHY IS THIS WEBSITE SO PRETTY"];
-let index = 0;
-
-LoadQuestion(index);
-
+//FLIPS THE FLASH OVER
 card.addEventListener('click', () =>{
     card.classList.toggle("flipped");
-    console.log("it's working");
 });
 
-
+//FLIPS THE SUN AND MOON ICONS OVER
 SunandMoon.addEventListener('click', () => {
     SunandMoon.classList.toggle('flipped');
     body.classList.toggle('dark');
@@ -25,9 +20,5 @@ nextBtn.addEventListener('click', () => {
     LoadQuestion(index);
     index++;
 });
+//FLIPS THE SUN AND MOON ICONS OVER
 
-//LOAD FUNCTION
-function LoadQuestion(i)
-{
-    front.textContent = questions[i % questions.length];
-}

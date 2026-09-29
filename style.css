@@ -59,6 +59,9 @@
     .card{
         display: flex;
         justify-content: space-evenly;
+        border: 2px solid red;
+        width: 50vw;
+        height: 50vh;
         perspective: 1000px;
         transform-style: preserve-3d;
     }
@@ -67,8 +70,9 @@
     {
         width: 300px;
         height: 300px;
-        position: relative;
+        position: absolute;
         transform-style: preserve-3d;
+        display: none;
         transition: transform 1s;
         transition-timing-function: ease-in-out;
     }
@@ -106,6 +110,10 @@
         transform: rotateY(180deg);
     }
 
+    .Show
+    {
+        display: block;
+    }
 
     @keyframes AngleTurn
     {
@@ -128,7 +136,7 @@
 
     #hed::after
     {
-        content: ' CARDSS☺';
+        content: ' CARDS☺';
         text-shadow: none;
         background-image: linear-gradient(var(--angle),var(--normal-purple), var(--dark-green));
         animation: AngleTurn 2s ease-in forwards infinite;
@@ -230,7 +238,7 @@
 /* STYLING MODES  */
 .dark
 {
-    background-color: #09504b;
+    background-color: rgba(41, 8, 80, 0.877);
 }
 
 .dark #hed
