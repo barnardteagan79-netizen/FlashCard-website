@@ -8,11 +8,14 @@ const previousBtn = document.getElementById("previous");
 let cards = document.querySelectorAll(".card-inner");
 let index = 0;
 
+DisplayCard();
+
 //FLIPS THE FLASH OVER
-card.addEventListener('click', () =>{
-    card.classList.toggle("flipped");
-    console.log(cards.length);
-});
+cards[index].onclick = function()
+{
+    cards[index].classList.toggle("flipped");
+    console.log(index);
+}
 
 //FLIPS THE SUN AND MOON ICONS OVER
 SunandMoon.addEventListener('click', () => {
@@ -23,29 +26,29 @@ SunandMoon.addEventListener('click', () => {
 
 nextBtn.onclick = function()
 {
-    DisplayCard(index);
     index++;
+    DisplayCard();
 }
 
 previousBtn.onclick = function()
 {
-    DisplayCard(index);
     index--;
+    DisplayCard();
 }
 
 //FLIPS THE SUN AND MOON ICONS OVER
 
-function DisplayCard(i)
+function DisplayCard()
 {
     for(let c = 0; c < cards.length; c++)
     {
         cards[c].classList.remove("Show");
     }
 
-    if(i > cards.length)
-    {
-        i = 0;
-    }
-    i = Math.abs(i);
-    cards[i % cards.length].classList.add("Show");
+    // if(i > cards.length)
+    // {
+    //     i = 0;
+    // }
+    index = Math.abs(index);
+    cards[index % cards.length].classList.add("Show");
 }
