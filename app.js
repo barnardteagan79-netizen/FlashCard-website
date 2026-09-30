@@ -1,4 +1,4 @@
-const card = document.querySelector('.card-inner');
+let card = document.querySelector('.card-inner');
 const SunandMoon = document.querySelector('.insight_box');
 const front = document.querySelector('.front');
 const body = document.getElementById('FlashCardWeb');
@@ -11,11 +11,6 @@ let index = 0;
 DisplayCard();
 
 //FLIPS THE FLASH OVER
-cards[index].onclick = function()
-{
-    cards[index].classList.toggle("flipped");
-    console.log(index);
-}
 
 //FLIPS THE SUN AND MOON ICONS OVER
 SunandMoon.addEventListener('click', () => {
@@ -44,11 +39,24 @@ function DisplayCard()
     {
         cards[c].classList.remove("Show");
     }
-
+    
     // if(i > cards.length)
     // {
     //     i = 0;
     // }
     index = Math.abs(index);
     cards[index % cards.length].classList.add("Show");
+
+    FlipFlashCard();
+    console.log(index);
+    card = document.querySelector('.card-inner');
+    
+}
+
+function FlipFlashCard()
+{
+    cards[index].onclick = function () {
+        cards[index].classList.toggle("flipped");
+        // console.log(index);
+    }
 }

@@ -66,6 +66,7 @@
         height: 400px;
         perspective: 1000px;
         transform-style: preserve-3d;
+        overflow: hidden;
     }
 
     .card-inner
@@ -81,9 +82,16 @@
         display: none;
         transition: transform 1s;
         transition-timing-function: ease-in-out;
+
+        animation: Slide 0.5s ease-in-out forwards;
     }
 
 
+    @keyframes Slide
+    {
+        0%{transform: translateX(100vw);}
+        100%{transform: translateX(0vw);}
+    }
 
     .front, .back
     {
