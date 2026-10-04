@@ -14,6 +14,8 @@
 
     --ArrowBackgroundColor: wheat;
     --BorderColor: black;
+
+    color: white;
 }
 
 /* for colour turning affect */
@@ -29,6 +31,7 @@
     body
     {
         background-color:#ECECE4;
+        overflow-x: hidden;
     }
 
     main{
@@ -66,7 +69,7 @@
         height: 400px;
         perspective: 1000px;
         transform-style: preserve-3d;
-        overflow: hidden;
+        /* overflow: hidden; */
     }
 
     .card-inner
@@ -83,16 +86,21 @@
         transition: transform 1s;
         transition-timing-function: ease-in-out;
 
-        animation: Slide 0.5s ease-in-out forwards;
     }
 
-
+    
     @keyframes Slide
     {
         0%{transform: translateX(100vw);}
         100%{transform: translateX(0vw);}
     }
 
+    @keyframes SlideOut
+    {
+        100%{transform: translateX(-100vw);}
+        0%{transform: translateX(0vw);}
+    }
+    
     .front, .back
     {
         width: 100%;
@@ -106,26 +114,16 @@
         animation: AngleTurn 10s linear forwards infinite;
         border: 5px solid black;
     }
-
-    .back
-    {
-        background-image: linear-gradient(var(--angle), var(--light-green), var(--dark-green), var(--normal-yellow));
-    }
-
-
-
-    .front
-    {
-        background-image: linear-gradient( var(--angle), var(--light-blue), var(--dark-blue), var(--normal-purple));
-    }
-
+    
+    
     .flipped
     {
         transform: rotateY(180deg);
     }
-
+    
     .Show
     {
+        animation: Slide 0.5s cubic-bezier(0.5, -0.4, 0.5, 1.6) 1;
         display: block;
     }
 
@@ -259,6 +257,7 @@
 
 
     --ArrowBackgroundColor: #564a5e;
+
     /* --BorderColor: white; */
 }
 
